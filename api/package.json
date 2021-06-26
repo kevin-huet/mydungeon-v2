@@ -1,0 +1,49 @@
+{
+  "name": "dungeon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon index.ts -e js,ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "author": "kevin huet",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa-router": "^7.4.2",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "blizzapi": "^2.0.2",
+    "cookie-parser": "^1.4.5",
+    "http-status": "^1.5.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-cookie": "^1.0.0",
+    "koa-cors": "^0.0.16",
+    "koa-jwt": "^4.0.1",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-passport": "^4.1.4",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "mongoose": "^5.12.13",
+    "moongoose": "^0.0.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "qs": "^6.10.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/node": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@types/koa": "^2.13.3",
+    "@types/koa-bodyparser": "^4.3.1",
+    "nodemon": "^2.0.7",
+    "standard": "^16.0.3"
+  }
+}
