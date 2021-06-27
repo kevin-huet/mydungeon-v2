@@ -8,10 +8,11 @@ const app = new Koa()
 const PORT = process.env.PORT || 3000
 const controller = require('./controller/controller')
 const initDB = require('./config/database.config')
+require('dotenv').config()
 require('ts-node/register');
 
 initDB()
-
+console.log(process.env.API_KEY)
 app.use(BodyParser())
 app.use(Logger())
 app.use(cors())
