@@ -2,14 +2,16 @@ import {AxiosInstance} from "axios";
 
 const axios = require('axios')
 
-class GameData {
+export default class GameData {
 
     public defaultAxiosParams : any
     public staticNamespace : String
     public dynamicNamespace : String
     public gameBaseUrlPath : String
     public token : String
+
     constructor(defaultAxiosParams : any, origin : String, token : String) {
+        console.log("init wow game data")
         this.defaultAxiosParams = defaultAxiosParams
         this.staticNamespace = `static-${origin}`
         this.dynamicNamespace = `dynamic-${origin}`
@@ -252,6 +254,7 @@ class GameData {
 
     // Covenant Api //
     async getCovenantsIndex() {
+        console.log("convenant index")
         return await this.handleApiCall(
             `${this.gameBaseUrlPath}/covenant/index`,
             'Error fetching',
@@ -469,7 +472,7 @@ class GameData {
 
     // Send request
     async handleApiCall(apiUrl : String, errorMessage : String, namespace : String) {
-        console.log("https://eu.api.blizzard.com/data/wow"+apiUrl)
+        console.log("https://eu.api.blizzard.com"+apiUrl)
         try {
             const response = await
                 axios.get("https://eu.api.blizzard.com"+apiUrl,
