@@ -2,7 +2,6 @@ const authenticate = require('../middleware/authenticate')
 const HttpStatus = require('http-status')
 const userService = require('../service/user.service')
 const blizzardApi = require('../service/blizzardApi/blizzardApi')
-const Covenant = require('../model/Covenant.model')
 const {Schema} = require("mongoose");
 
 

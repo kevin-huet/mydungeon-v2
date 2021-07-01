@@ -2,17 +2,17 @@ import {AxiosInstance} from "axios"
 
 const axios = require('axios')
 const qs = require('qs')
-const WoWGameData = require('./wow/gameData.ts')
-
-class BlizzardApi {
+const GameData = require('./wow/gameData')
+export default class BlizzardApi {
     public origin : string
     public locale : string
     public clientId : string
     public clientSecret : string
     public axios : AxiosInstance
-    public wowGameData : object
+    public wowGameData : any
     public oauthToken : string
     public defaultAxiosParams : object
+    public tokenDate : Date
     private originObject: object = {
         us:  {
             hostname: 'https://us.api.blizzard.com',
@@ -47,6 +47,7 @@ class BlizzardApi {
     };
 
     constructor() {
+        console.log("construct blizzardAPi")
     }
 
     async init(clientId : string, clientSecret : string, origin = 'eu', locale = 'en_GB') {
@@ -65,13 +66,14 @@ class BlizzardApi {
         // and then creates a reusable instance of axios for all subsequent API requests.
         try {
             await this.setOAuthToken()
-            this.axios.defaults.headers.common['Authorization'] = `Bearer ${this.oauthToken}`
-            console.log(this.oauthToken)
+            this.tokenDate = await new Date()
+            console.log("init blizzardAPi")
+
         } catch (error) {
             //console.log(error)
         }
+        this.wowGameData = new GameData(this.defaultAxiosParams, this.origin, this.oauthToken);
 
-        this.wowGameData = new WoWGameData(this.defaultAxiosParams, this.origin, this.oauthToken);
     }
 
     async setOAuthToken() {
@@ -102,5 +104,3 @@ class BlizzardApi {
         }
     }
 }
-
-module.exports = BlizzardApi

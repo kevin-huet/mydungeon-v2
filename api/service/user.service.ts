@@ -21,13 +21,6 @@ const checkIfAlreadyExist = async (username : String, email : String) => {
   }
   return false
 }
-
-const getMount = async() => {
-  let api = new blizzardApi()
-  await api.init("d51577f11551459c898710354b0a0ecd", "KQLcSCQeESolbb1ouyRAN9sCtTQqOGLG")
-  return await api.wowGameData.getMount(85)
-}
-
 const checkAuth = async (email : String, password : String) => {
   const user = await User.findOne({
     $or: [
@@ -44,4 +37,4 @@ const checkAuth = async (email : String, password : String) => {
   return null
 }
 
-module.exports = { getMount, getUserFromDb, createUserInDb, checkIfAlreadyExist, checkAuth }
+module.exports = { getUserFromDb, createUserInDb, checkIfAlreadyExist, checkAuth }

@@ -7,8 +7,8 @@ const cors = require('koa-cors')
 const app = new Koa()
 const PORT = process.env.PORT || 3000
 const controller = require('./controller/controller')
-const initDB = require('./config/database.config')
 require('dotenv').config()
+const initDB = require('./config/database.config')
 require('ts-node/register');
 
 initDB()

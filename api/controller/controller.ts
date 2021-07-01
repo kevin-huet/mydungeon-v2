@@ -5,13 +5,15 @@ const jwt = require('../middleware/jwt')
 const homeController = require('./home.controller')
 const loginController = require('./login.controller')
 const registerController = require('./register.controller')
-const mythicControlelr = require('./wow/mythic.controller')
+const mythicController = require('./wow/mythic.controller')
+import WowService from '../service/wow/wow.service'
 router.use(cookie.default());
 
-module.exports = function (app) {
+module.exports = function (app: any) {
+
   homeController(router)
   loginController(router, jwt)
   registerController(router)
-  mythicControlelr(router)
+  mythicController(router, WowService)
   app.use(router.routes()).use(router.allowedMethods())
 }

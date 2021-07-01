@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connexionString = 'mongodb://172.23.0.1:27017/dungeon'
+const connexionString = process.env.DB_URL
 
 const initDB = () => {
   mongoose.connect(connexionString, {
